@@ -27,11 +27,10 @@ public class Renderer {
                     g2.fillRect(0, 0, getWidth(), getHeight());
 
                     // creating our shape
-                    ArrayList<Triangle> tris = new ArrayList<>();
-                    tris.add(new Triangle(new Vertex(100, 100, 100), new Vertex(-100, -100, 100), new Vertex(-100, 100, -100), Color.WHITE));
-                    tris.add(new Triangle(new Vertex(100, 100, 100), new Vertex(-100, -100, 100), new Vertex(100, -100, -100), Color.RED));
-                    tris.add(new Triangle(new Vertex(-100, 100, -100), new Vertex(100, -100, -100), new Vertex(100, 100, 100), Color.GREEN));
-                    tris.add(new Triangle(new Vertex(-100, 100, -100), new Vertex(100, -100, -100), new Vertex(-100, -100, 100), Color.BLUE));
+                    ArrayList<Triangle> triangles = new ArrayList<>();
+                    triangles.add(new Triangle(new Vertex(100, 100, 100), new Vertex(-100, -100, 100), new Vertex(100, -100, -100), Color.RED));
+                    triangles.add(new Triangle(new Vertex(-100, 100, -100), new Vertex(100, -100, -100), new Vertex(100, 100, 100), Color.GREEN));
+                    triangles.add(new Triangle(new Vertex(-100, 100, -100), new Vertex(100, -100, -100), new Vertex(-100, -100, 100), Color.BLUE));
 
                     // matrix transformations
                     double heading = Math.toRadians(headingSlider.getValue());
@@ -60,7 +59,7 @@ public class Renderer {
                     }
 
                     // importing triangles
-                    for (Triangle t : tris) {
+                    for (Triangle t : triangles) {
                         Vertex v1 = transform.transform(t.v1);
                         Vertex v2 = transform.transform(t.v2);
                         Vertex v3 = transform.transform(t.v3);
